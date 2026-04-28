@@ -43,7 +43,12 @@ src/app/
 
 ## Environment
 
-The API base URL is configured in `api.service.ts`. Default: `http://localhost:8080/api`.
+The API base URL is managed via Angular environment files:
+
+- **Development** (`src/environments/environment.ts`): `http://localhost:8080/api`
+- **Production** (`src/environments/environment.prod.ts`): `https://jewellery-shop-backend-8f3d1.web.app/api`
+
+The production build (`ng build --configuration production`) automatically swaps the environment file via `fileReplacements` in `angular.json`.
 
 ## Build for Production
 
@@ -70,4 +75,5 @@ docker compose up --build
 ```
 
 Frontend: `http://localhost`  
-Backend: `http://localhost:8080`
+Backend (local): `http://localhost:8080`  
+Backend (Firebase): `https://jewellery-shop-backend-8f3d1.web.app`
